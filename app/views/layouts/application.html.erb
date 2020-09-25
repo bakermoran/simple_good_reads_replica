@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GoodReads</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        display: inline;
+      }
+    </style>
+  </head>
+
+  <body>
+  <ul>
+    <li><a href="/">Home</a></li> | <li><a href="/books">Books</a></li> | <li><a href="/authors">Authors</a></li> | <li><a href="/users">Users</a></li>
+    <hr>
+    <br>
+  </ul>
+    <%= yield %>
+  </body>
+</html>

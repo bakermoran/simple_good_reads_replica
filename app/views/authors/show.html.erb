@@ -1,0 +1,15 @@
+
+<h2><%= @author.first_name %> <%= @author.last_name %></h2>
+<p class="author_bio"> <%= @author.bio %> </p>
+
+<br>
+<h3>All Books:</h3>
+<hr>
+
+<% @books.each do |book| %>
+    <h4 class="title"> <%= book.title %> </h4>
+    <p class="publisher">(<%= book.publisher %>) | <%= book.year_published %></p>
+    <p class="description"> <%= book.description %> </p>
+    <%= link_to 'See all Reviews', book %>
+    <hr>
+<% end %>

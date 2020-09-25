@@ -1,0 +1,22 @@
+
+<h2 class='name'><%= @user.first_name%> <%= @user.last_name%></h2>
+<h3 class=user_name><%= @user.user_name%></h3>
+<p class='member_since'>Member since: <%= @user.created_at.strftime("%m-%d-%Y") %> </p>
+
+<br>
+<h3>All Reviews:</h3>
+<hr>
+
+<% @reviews.each do |review| %>
+    <% book = Book.find(review.book_id) %>
+    <h4 class="title"> <%= link_to book.title, book %> </h4>
+    <p class="rating"> Rating: <%= review.rating %> </p>
+    <p class="review">
+        <% if review.review_text.length <= 50 %>
+            <%= review.review_text[0..50] %>
+        <% else %>
+            <%= review.review_text[0..50] %>... <%= link_to "Full Review", review %>
+        <% end %>
+    </p>
+    <hr>
+<% end %>

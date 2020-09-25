@@ -1,0 +1,25 @@
+
+<% total_score = 0 %>
+<% @reviews.each do |review| %>
+    <% total_score += review.rating %>
+<% end %>
+
+
+<h2 class="title"> <%= @book.title %> </h2>
+<% author = Author.find(@book.author_id)%>
+<p class="author"> <%= link_to author.first_name + ' ' + author.last_name, author %> </p>
+<p class="rating">Average Rating: <%= (total_score.to_d / @reviews.length.to_d).to_d %></p>
+<p class="publisher">(<%= @book.publisher %>) | <%= @book.year_published %></p>
+<p class="description"> <%= @book.description %> </p>
+<br>
+<h3>All Reviews</h3>
+<hr>
+
+<% @reviews.each do |review| %>
+    <% user = User.find(review.user_id)%>
+    <p class="rating"> Rating: <%= review.rating %> </p>
+    <p class="review_author"> By: <%= user.first_name%> <%= user.last_name%> | <%= link_to user.user_name, user %></p>
+    <p class="review"> <%= review.review_text %> </p>
+    <hr>
+<% end %>
+<% 'No Reviews Yet!' if @reviews.length == 0 %>
