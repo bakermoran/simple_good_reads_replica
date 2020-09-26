@@ -1,0 +1,14 @@
+
+<% @reviews.each do |review| %>
+    <% user = review.user %>
+    <p class="user"> <%= user.first_name %> <%= user.last_name %> | <%= link_to user.user_name, user %></p>
+    <p> <%= review.created_at.strftime("%m-%d-%Y") %> </p>
+    <p class="review">
+        <% if review.review_text.length <= 50 %>
+            <%= review.review_text[0..50] %>
+        <% else %>
+            <%= review.review_text[0..50] %>... <%= link_to "Full Review", review %>
+        <% end %>
+    </p>
+    <hr>
+<% end %>
