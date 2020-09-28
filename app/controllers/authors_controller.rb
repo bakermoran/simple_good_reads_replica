@@ -21,6 +21,20 @@ class AuthorsController < ApplicationController
         end
     end
 
+    def edit
+        @author = Author.find(params[:id])
+    end
+
+    def update
+        @author = Author.find(params[:id])
+        if @author.save
+            @author.update(first_name: params[:author][:first_name], last_name: params[:author][:last_name], bio: params[:author][:bio])
+            redirect_to @author
+        else
+            render 'edit'
+        end
+    end
+
     private
 
     def author_params
