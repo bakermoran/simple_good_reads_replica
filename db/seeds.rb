@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-u1 = User.create(first_name: "Baker", last_name: "Moran", user_name: "bamoran")
-u2 = User.create(first_name: "Maria", last_name: "Fenters", user_name: "mfenters")
-u3 = User.create(first_name: "Katie", last_name: "Thompson", user_name: "ktbug")
-u4 = User.create(first_name: "Owen", last_name: "Auch", user_name: "owenauch")
+u1 = User.create(first_name: "Baker", last_name: "Moran", user_name: "bamoran", password: "password1", password_confirmation: "password1")
+u2 = User.create(first_name: "Maria", last_name: "Fenters", user_name: "mfenters", password: "password2", password_confirmation: "password2")
+u3 = User.create(first_name: "Katie", last_name: "Thompson", user_name: "ktbug", password: "password3", password_confirmation: "password3")
+u4 = User.create(first_name: "Owen", last_name: "Auch", user_name: "owenauch", password: "password4", password_confirmation: "password4")
 
 a1 = Author.create(first_name: "Michael", last_name: "Chabon", bio: "American novelist, screenwriter, columnist and short story writer.")
 a2 = Author.create(first_name: "Cixin", last_name: "Liu", bio: "Chinese Sci-Fi writer.")
