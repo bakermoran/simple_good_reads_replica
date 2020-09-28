@@ -1,8 +1,8 @@
 
 <h2 class="title"> <%= @book.title %> </h2>
-<h4>Review By: <%= @user.first_name%> <%= @user.last_name%> </h4>
+<h4>Review By: <%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %> </h4>
 <p class="link_to_user"> <%= link_to @user.user_name, @user %> </p>
 <hr>
-<h4 class="rating"> Rating: <%= @review.rating %> </h4>
+<h5 class="rating"> Rating: <%= @review.rating %> </h5>
 <p class="review"> <%= @review.review_text %> </p>
 <%= link_to 'Book Description', @book %>

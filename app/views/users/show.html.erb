@@ -1,5 +1,5 @@
 
-<h2 class='name'><%= @user.first_name%> <%= @user.last_name%></h2>
+<h2 class='name'><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h2>
 <h3 class=user_name><%= @user.user_name%></h3>
 <p class='member_since'>Member since: <%= @user.created_at.strftime("%m-%d-%Y") %> </p>
 
