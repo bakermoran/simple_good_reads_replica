@@ -11,6 +11,7 @@
 <p class="rating">Average Rating: <%= (total_score.to_d / @reviews.length.to_d).to_d %></p>
 <p class="publisher">(<%= @book.publisher %>) | <%= @book.year_published %></p>
 <p class="description"> <%= @book.description %> </p>
+<%= link_to 'Edit Book', edit_book_path %>
 <br>
 <h3>All Reviews</h3>
 <hr>

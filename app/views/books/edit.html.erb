@@ -1,0 +1,35 @@
+<% provide(:title, 'Edit Book') %>
+<h1>Edit Book</h1>
+
+<h4> Author </h4>
+<p>
+    <%= @author.first_name%> <%= @author.last_name%>
+    <%= @author.id%>
+</p>
+
+<h3> Book </h3>
+<div>
+    <%= form_for(@book) do |f| %>
+        <p>
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+        </p>
+
+        <p>
+            <%= f.label :description %>
+            <%= f.text_field :description %>
+        </p>
+
+        <p>
+            <%= f.label :publisher %>
+            <%= f.text_field :publisher %>
+        </p>
+
+        <p>
+            <%= f.label :year_published %>
+            <%= f.text_field :year_published %>
+        </p>
+
+        <%= f.submit "Save Book", class: "btn btn-primary" %>
+    <% end %>
+</div>
