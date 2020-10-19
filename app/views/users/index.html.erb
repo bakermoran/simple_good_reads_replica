@@ -1,4 +1,5 @@
 
+
 <% @users.each do |user| %>
     <p class="user"> <%= user.first_name.capitalize %> <%= user.last_name.capitalize %> | <%= link_to user.user_name, user %></p>
     <p class="member_since"> Member Since: <%= user.created_at.strftime("%m-%d-%Y") %> </p>
