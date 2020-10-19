@@ -1,7 +1,15 @@
 
-<% @authors.each do |author| %>
-    <h3><%= author.first_name %> <%= author.last_name %></h3>
-    <%= author.bio %>
-    <%= link_to 'See Author\'s Page', author %>
-    <hr>
-<% end %>
+<div class="apple_pagination">
+    <%= will_paginate %>
+</div>
+
+    <% @authors.each do |author| %>
+        <h3><%= author.first_name %> <%= author.last_name %></h3>
+        <%= author.bio %>
+        <%= link_to 'See Author\'s Page', author %>
+        <hr>
+    <% end %>
+    
+<div class="apple_pagination">
+    <%= will_paginate %>
+</div>

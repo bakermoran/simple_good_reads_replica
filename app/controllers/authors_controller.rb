@@ -2,7 +2,7 @@ class AuthorsController < ApplicationController
     before_action :logged_in_user
 
     def index
-        @authors = Author.all
+        @authors = Author.paginate(page: params[:page], per_page: 10)
     end
 
     def show

@@ -1,15 +1,25 @@
 
-<% @reviews.each do |review| %>
-    <% user = review.user %>
-    <p class="user"> <%= user.first_name.capitalize %> <%= user.last_name.capitalize %> | <%= link_to user.user_name, user %></p>
-    <p> <%= review.created_at.strftime("%m-%d-%Y") %> </p>
-    <p class="review">
-        <% if review.review_text.length <= 50 %>
-            <%= review.review_text[0..50] %>
-        <% else %>
-            <%= review.review_text[0..50] %> ...
-        <% end %>
-        <%= link_to "Full Review", review %>
-    </p>
-    <hr>
-<% end %>
+<h1>News Feed</h1>
+<br>
+
+<div class="apple_pagination">
+    <%= will_paginate %>
+</div>
+    <br>
+    <% @reviews.each do |review| %>
+        <% user = review.user %>
+        <p class="user"> <%= user.first_name.capitalize %> <%= user.last_name.capitalize %> | <%= link_to user.user_name, user %></p>
+        <p> <%= review.created_at.strftime("%m-%d-%Y") %> </p>
+        <p class="review">
+            <% if review.review_text.length <= 50 %>
+                <%= review.review_text[0..50] %>
+            <% else %>
+                <%= review.review_text[0..50] %> ...
+            <% end %>
+            <%= link_to "Full Review", review %>
+        </p>
+        <hr>
+    <% end %>
+<div class="apple_pagination">
+    <%= will_paginate %>
+</div>
