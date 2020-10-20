@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-u1 = User.create(first_name: "Baker", last_name: "Moran", user_name: "bamoran", password: "password1", password_confirmation: "password1")
-u2 = User.create(first_name: "Maria", last_name: "Fenters", user_name: "mfenters", password: "password2", password_confirmation: "password2")
-u3 = User.create(first_name: "Katie", last_name: "Thompson", user_name: "ktbug", password: "password3", password_confirmation: "password3")
-u4 = User.create(first_name: "Owen", last_name: "Auch", user_name: "owenauch", password: "password4", password_confirmation: "password4")
+u1 = User.create(first_name: "Baker", last_name: "Moran", user_name: "bamoran", password: "password1", password_confirmation: "password1", admin: true)
+u2 = User.create(first_name: "Maria", last_name: "Fenters", user_name: "mfenters", password: "password2", password_confirmation: "password2", admin: false)
+u3 = User.create(first_name: "Katie", last_name: "Thompson", user_name: "ktbug", password: "password3", password_confirmation: "password3", admin: false)
+u4 = User.create(first_name: "Owen", last_name: "Auch", user_name: "owenauch", password: "password4", password_confirmation: "password4", admin: false)
 
 a1 = Author.create(first_name: "Michael", last_name: "Chabon", bio: "American novelist, screenwriter, columnist and short story writer.")
 a2 = Author.create(first_name: "Cixin", last_name: "Liu", bio: "Chinese Sci-Fi writer.")
@@ -20,7 +20,7 @@ a6 = Author.create(first_name: "John", last_name: "Steinbeck", bio: "Nobel prize
 a7 = Author.create(first_name: "George R. R.", last_name: "Martin", bio: "American fantasy writer")
 
 b1 = Book.create(title: "The Amazing Adventures of Kavalier and Klay", author_id: a1.id, description: "Joe Kavalier, a young Jewish artist who has also been trained in the art of Houdini-esque escape, has just smuggled himself out of Nazi-invaded Prague and landed in New York City. His Brooklyn cousin Sammy Clay is looking for a partner to create heroes, stories, and art for the latest novelty to hit America - the comic book. Drawing on their own fears and dreams, Kavalier and Clay create the Escapist, the Monitor, and Luna Moth, inspired by the beautiful Rosa Saks, who will become linked by powerful ties to both men. With exhilarating style and grace, Michael Chabon tells an unforgettable story about American romance and possibility.", publisher: "Picador", year_published: 2001)
-b2 = Book.create(title: "Th Three-Body Problem", author_id: a2.id, description: "The Three-Body Problem is the first chance for English-speaking readers to experience the Hugo Award-winning phenomenon from China's most beloved science fiction author, Liu Cixin. Rememberance of Earth's Past #1", publisher: "Tor", year_published: 2014)
+b2 = Book.create(title: "The Three-Body Problem", author_id: a2.id, description: "The Three-Body Problem is the first chance for English-speaking readers to experience the Hugo Award-winning phenomenon from China's most beloved science fiction author, Liu Cixin. Rememberance of Earth's Past #1", publisher: "Tor", year_published: 2014)
 b3 = Book.create(title: "The Dark Forest", author_id: a2.id, description: "The Dark Forest is the first chance for English-speaking readers to experience the Hugo Award-winning phenomenon from China's most beloved science fiction author, Liu Cixin. Rememberance of Earth's Past #2", publisher: "Tor", year_published: 2015)
 b4 = Book.create(title: "Death's End", author_id: a2.id, description: "Death's End is the first chance for English-speaking readers to experience the Hugo Award-winning phenomenon from China's most beloved science fiction author, Liu Cixin. Rememberance of Earth's Past #3", publisher: "Tor", year_published: 2016)
 b5 = Book.create(title: "Wild", author_id: a3.id, description: "At twenty-two, Cheryl Strayed thought she had lost everything. In the wake of her mother’s death, her family scattered and her own marriage was soon destroyed. Four years later, with nothing more to lose, she made the most impulsive decision of her life. With no experience or training, driven only by blind will, she would hike more than a thousand miles of the Pacific Crest Trail from the Mojave Desert through California and Oregon to Washington State — and she would do it alone. Told with suspense and style, sparkling with warmth and humor, Wild powerfully captures the terrors and pleasures of one young woman forging ahead against all odds on a journey that maddened, strengthened, and ultimately healed her.", publisher: "Knopf", year_published: 2012)

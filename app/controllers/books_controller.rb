@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
     before_action :logged_in_user
+    before_action :admin_user, only: [:edit, :update, :new, :create, :destroy]
 
     def index
         @books = Book.paginate(page: params[:page], per_page: 10)
@@ -41,6 +42,15 @@ class BooksController < ApplicationController
         else
             render 'new'
         end
+    end
+
+    def destroy
+        book = Book.find(params[:id])
+        reviews = book.reviews
+        reviews.destroy_all
+        book.destroy
+        flash[:success] = "Book deleted"
+        redirect_to books_url
     end
 
     private

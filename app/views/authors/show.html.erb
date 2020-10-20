@@ -1,7 +1,11 @@
 
 <h2><%= @author.first_name %> <%= @author.last_name %></h2>
 <p class="author_bio"> <%= @author.bio %> </p>
-<p> <%= link_to 'Edit Author', edit_author_path %> </p>
+
+<% if current_user.admin? %>
+    <p> <%= link_to 'Edit Author', edit_author_path, class: "btn btn-outline-success" %> </p>
+    <p> <%= link_to "Delete Author", @author, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-outline-danger" %> </p>
+<% end %>
 
 <br>
 <h3>All Books:</h3>

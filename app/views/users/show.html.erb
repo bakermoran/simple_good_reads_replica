@@ -3,6 +3,14 @@
 <h3 class=user_name><%= @user.user_name%></h3>
 <p class='member_since'>Member since: <%= @user.created_at.strftime("%m-%d-%Y") %> </p>
 
+<% if current_user?(@user) %>
+    <p> <%= link_to "Edit User", edit_user_path, class: "btn btn-outline-success" %> </p>
+<% end %>
+
+<% if current_user.admin? && !current_user?(@user) %>
+    <p> <%= link_to "Delete User", @user, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-outline-danger" %> </p>
+<% end %>
+
 <br>
 <h3>All Reviews:</h3>
 <hr>

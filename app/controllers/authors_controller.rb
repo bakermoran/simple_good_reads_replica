@@ -1,5 +1,6 @@
 class AuthorsController < ApplicationController
     before_action :logged_in_user
+    before_action :admin_user, only: [:edit, :update, :new, :create, :destroy]
 
     def index
         @authors = Author.paginate(page: params[:page], per_page: 10)
@@ -35,6 +36,18 @@ class AuthorsController < ApplicationController
         else
             render 'edit'
         end
+    end
+
+    def destroy
+        author = Author.find(params[:id])
+        books = author.books
+        books.each do |book|
+            book.reviews.destroy_all
+            book.destroy
+        end
+        author.destroy
+        flash[:success] = "Author deleted"
+        redirect_to books_url
     end
 
     private

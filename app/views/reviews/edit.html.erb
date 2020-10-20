@@ -1,0 +1,19 @@
+<% provide(:title, 'Edit Review') %>
+<% book = Book.find(@review.book_id)%>
+<h1>Edit Review of <%= book.title %></h1>
+
+<div>
+    <%= form_for(@review) do |f| %>
+        <p>
+            <%= f.label :review %>
+            <%= f.text_field :review_text %>
+        </p>
+
+        <p>
+            <%= f.label :rating %>
+            <%= f.select :rating, 5.downto(1).to_a %>
+        </p>
+
+        <%= f.submit "Edit Review", class: "btn btn-primary" %>
+    <% end %>
+</div>

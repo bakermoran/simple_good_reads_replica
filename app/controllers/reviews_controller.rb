@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
     before_action :logged_in_user
+    before_action :correct_user, only: [:edit, :update, :destroy]
 
     def index
         @reviews = Review.paginate(page: params[:page], per_page: 10)
@@ -21,6 +22,20 @@ class ReviewsController < ApplicationController
             redirect_to @new_review
         else
             render 'new'
+        end
+    end
+
+    def edit
+        @review = Review.find(params[:id])
+    end
+
+    def update
+        @review = Review.find(params[:id])
+        if @review.save
+            @review.update(review_text: params[:review][:review_text], rating: params[:review][:rating])
+            redirect_to @review
+        else
+            render 'edit'
         end
     end
 
