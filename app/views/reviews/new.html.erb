@@ -1,0 +1,20 @@
+<% provide(:title, 'Add a New Review') %>
+<h1>Add a new Review</h1>
+
+<div>
+    <%= form_for(@new_review) do |f| %>
+        <p>
+            <%= f.label :review_text %>
+            <%= f.text_field :review_text %>
+        </p>
+
+        <p>
+            <%= f.label :rating %>
+            <%= f.select :rating, 5.downto(1).to_a %>
+        </p>
+
+        <%= f.select(:book_id, Book.all.collect do |book| [ book.title + ' by ' + book.author.first_name + ' ' + book.author.last_name, book.id] end, {}, { "data-placeholder": "Select Book" }) %>
+
+        <%= f.submit "Submit New Review", class: "btn btn-primary" %>
+    <% end %>
+</div>

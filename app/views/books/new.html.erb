@@ -1,9 +1,8 @@
-<% provide(:title, 'Edit Book') %>
-<h1>Edit Book</h1>
+<% provide(:title, 'Input New Book') %>
+<h1>Input New Book</h1>
 
-<h3> Book </h3>
 <div>
-    <%= form_for(@book) do |f| %>
+    <%= form_for(@new_book) do |f| %>
         <p>
             <%= f.label :title %>
             <%= f.text_field :title %>
@@ -26,6 +25,7 @@
 
         <%= f.select(:author_id, Author.all.collect do |author| [ author.last_name + ', ' + author.first_name, author.id] end, {}, { "data-placeholder": "Select Author" }) %>
 
-        <%= f.submit "Save Book", class: "btn btn-primary" %>
+        <%= f.submit "Submit New Book", class: "btn btn-primary" %>
     <% end %>
 </div>
+

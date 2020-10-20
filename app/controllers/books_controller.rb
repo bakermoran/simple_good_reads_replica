@@ -12,7 +12,6 @@ class BooksController < ApplicationController
 
     def edit
         @book = Book.find(params[:id])
-        @author = @book.author
     end
 
     def update
@@ -22,11 +21,25 @@ class BooksController < ApplicationController
             @book.update(title: params[:book][:title],
                          description: params[:book][:description],
                          publisher: params[:book][:publisher],
-                         year_published: params[:book][:year_published]
+                         year_published: params[:book][:year_published],
+                         author_id: params[:book][:author_id]
                          )
             redirect_to @book
         else
             render 'edit'
+        end
+    end
+
+    def new
+        @new_book = Book.new
+    end
+
+    def create
+        @new_book = Book.new(book_params)
+        if @new_book.save
+            redirect_to @new_book
+        else
+            render 'new'
         end
     end
 
