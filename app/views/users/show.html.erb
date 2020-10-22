@@ -2,14 +2,21 @@
 <h2 class='name'><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h2>
 <h3 class=user_name><%= @user.user_name%></h3>
 <p class='member_since'>Member since: <%= @user.created_at.strftime("%m-%d-%Y") %> </p>
+<% if is_admin?(@user) %>
+    <h4> Admin user </h4>
+<% elsif current_user.admin?%>
+    <p> <%= link_to "Make Admin", make_admin_path, class: "btn btn-outline-warning" %> </p>
+<% end %>
 
 <% if current_user?(@user) %>
     <p> <%= link_to "Edit User", edit_user_path, class: "btn btn-outline-success" %> </p>
 <% end %>
 
-<% if current_user.admin? && !current_user?(@user) %>
+
+<% if current_user.admin? && !current_user?(@user)%>
     <p> <%= link_to "Delete User", @user, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-outline-danger" %> </p>
 <% end %>
+
 
 <br>
 <h3>All Reviews:</h3>
@@ -27,4 +34,8 @@
         <% end %>
     </p>
     <hr>
+<% end %>
+
+<% if current_user?(@user)%>
+    <p> <%= link_to "Delete My Account", @user, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-outline-danger" %> </p>
 <% end %>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :authors
     resources :reviews
     resources :users
+    get 'user[:id]/admin' => 'users#make_admin', :as => :make_admin
     get 'signup' => 'users#new'
     get 'login' => 'sessions#new'
     post 'login' => 'sessions#create'

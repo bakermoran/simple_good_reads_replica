@@ -8,9 +8,9 @@ class SessionsController < ApplicationController
             log_in user
             remember user
             redirect_to user
-        elsif user
-            flash.now[:danger] = 'user_name not found'
-            render 'new'
+        elsif !user
+            flash.now[:danger] = 'Username not found'
+                render 'new'
         else
             flash.now[:danger] = 'Invalid user_name/password combination'
             render 'new'
